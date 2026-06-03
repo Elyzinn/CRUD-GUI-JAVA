@@ -1,0 +1,7 @@
+
+Produto{descricao='Filho da putinha ', preco=5.99, quantidade=5}
+Animal{nome='tigre ', peso=15.6, tamanho=1.8}
+Animal{nome='cavalo', peso=96.8, tamanho=2.89}
+Animal{nome='tigre', peso=168.0, tamanho=1.8}
+Animal{nome='macaco prego', peso=50.0, tamanho=2.03}
+Animal{nome='hipopotamo', peso=1.0, tamanho=1.0}
