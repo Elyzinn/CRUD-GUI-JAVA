@@ -56,4 +56,14 @@ public class ProdutoDao extends Dao {
             ps.execute();
 
     }
+
+    public void deletar(Produto produto) throws SQLException{
+
+        var sqlDelete = "DELETE FROM produto WHERE id = ?";
+        var ps = getConnection().prepareStatement(sqlDelete);
+
+        ps.setLong(1, produto.getId());
+
+        ps.executeUpdate();
+    }
 }

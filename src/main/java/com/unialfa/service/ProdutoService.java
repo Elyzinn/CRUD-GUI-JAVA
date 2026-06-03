@@ -43,6 +43,19 @@ public class ProdutoService {
         }
     }
 
+    public void eliminar(Produto produto){
+        try{
+            var dao = new ProdutoDao();
+            if (produto.getId() != null){
+                dao.deletar(produto);
+            }
+
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+    }
+
+
     public Integer contarProdutosBaratos(){
         //regra de negócio
         return 1;

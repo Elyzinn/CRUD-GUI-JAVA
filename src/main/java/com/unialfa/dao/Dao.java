@@ -11,8 +11,8 @@ public class Dao {
             Class.forName("com.mysql.cj.jdbc.Driver");
             this.connection = DriverManager.getConnection(
                     "jdbc:mysql://localhost:3306/produto?useTimezone=true&serverTimezone=UTC",
-                    "root",
-                    "");
+                    "elienay",
+                    "elienay1!");
         }catch (Exception e){
             System.out.println(e.getMessage());
         }

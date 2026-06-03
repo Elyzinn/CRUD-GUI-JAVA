@@ -26,6 +26,7 @@ public class ProdutoGui extends JFrame implements PainelDefault{
     private JLabel qtdLabel = new JLabel("Quantidade");
     private JTextField qtdField = new JTextField(20);
     private JButton botaoEnviar = new JButton("Enviar");
+    private JButton botaoDeletar = new JButton("Deletar");
 
     private JTable tabela = new JTable();
 
@@ -47,8 +48,11 @@ public class ProdutoGui extends JFrame implements PainelDefault{
         painelAdd(painel,qtdLabel,0,3);
         painelAdd(painel,qtdField,1,3);
         painelAdd(painel, botaoEnviar,0,4);
+        painelAdd(painel, botaoDeletar, 2,4);
 
         botaoEnviar.addActionListener(this::enviar);
+        botaoDeletar.addActionListener(this::bDeletar);
+
 
         getContentPane().add(painel, BorderLayout.NORTH);
 
@@ -124,6 +128,21 @@ public class ProdutoGui extends JFrame implements PainelDefault{
         produto.setQuantidade(quantidade);
 
         service.incluir(produto);
+
+        limparCampos();
+        tabela.setModel(getTabelaModel());
+    }
+
+    private void bDeletar(ActionEvent actionEvent){
+        var produto = new Produto();
+
+        if (!idField.getText().equals("")){
+            var id = Long.valueOf(idField.getText());
+            produto.setId(id);
+        }
+
+        System.out.println("ID QUE A GUI ESTÁ ENVIANDO: " + produto.getId());
+        service.eliminar(produto);
 
         limparCampos();
         tabela.setModel(getTabelaModel());
